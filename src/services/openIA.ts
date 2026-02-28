@@ -1,7 +1,7 @@
 import { env } from "@config/env";
 import OpenAI from "openai";
 
-export const extractTextImage = async (base64String: string) => {
+export const extractTextImageOpenIA = async (base64String: string) => {
   const client = new OpenAI({
     apiKey: env.OPENAI_KEY,
   });
