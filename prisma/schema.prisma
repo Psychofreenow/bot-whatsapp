@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Webhook_entry {
+  id         Int       @id @default(autoincrement())
+  payload    Json
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+  messages   Message[]
+}
+
+model Message {
+  id               Int           @id @default(autoincrement())
+  id_mesage        String        @unique
+  profile_name     String
+  phone_number     String
+  content          String
+  created_at       DateTime      @default(now())
+  updated_at       DateTime      @updatedAt
+  webhook_entry    Webhook_entry @relation(fields: [webhook_entry_id], references: [id])
+  webhook_entry_id Int           @unique
+  type_message     Type_message  @relation(fields: [type_message_id], references: [id])
+  type_message_id  Int
+}
+
+model Type_message {
+  id         Int       @id @default(autoincrement())
+  name       String    @unique
+  messages   Message[]
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+}
