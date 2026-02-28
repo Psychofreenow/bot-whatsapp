@@ -10,6 +10,11 @@
       "@controllers/*": ["src/controllers/*"],
       "@services/*": ["src/services/*"],
       "@config/*": ["config/*"],
+      "@repository/*": ["src/repository/*"],
+      "@clients/*": ["src/clients/*"],
+      "@types/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"],
+      "@api/*": ["src/api/*"],
     },
 
 
