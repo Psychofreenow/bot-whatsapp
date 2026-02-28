@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch --env-file=.env -r tsconfig-paths/register src/index.ts",
-    "prima:migration": "npx prisma migrate dev --name init",
+    "prisma:migration:init": "npx prisma migrate dev --name init",
+    "prisma:migration": "npx prisma migrate",
     "prisma:db:pull": "npx prisma db pull",
     "prisma:generate": "npx prisma generate"
   },
